@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block links %}
+{% endblock links %}
+
+{% block content %}
+<div>
+    <form action="" method='POST'>
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <div>
+                {{ form.title.label(class="form-control-label h5") }}
+                {{ form.title(class="form-control form-control-lg") }}
+                {% if form.title.errors %}
+                    {% for error in form.title.errors %}
+                        <br><span class="red-msg">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>
+                {{ form.desc.label(class="form-control-label h5") }}
+                {{ form.desc(class="form-control form-control-lg") }}
+                {% if form.desc.errors %}
+                    {% for error in form.desc.errors %}
+                        <br><span class="red-msg">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </fieldset>
+        <br>
+        <div>
+            {{ form.submit(class="btn btn-info btn-lg") }}
+        <br><br>
+        <hr>
+    </form>
+    <div class="row">
+        <ul class="list-group">
+            {% for task in incomplete %}
+                {% if task.user == current_user %}
+                    {% if task.desc %}
+                        <li class="list-group-item">{{ task.title}} - {{task.desc }}</li>
+                    {% else %}
+                        <li class="list-group-item">{{ task.title}}
+                            <a href="{{ url_for('complete', id=task.id) }}"><img src="{{ url_for('static', filename = 'img/done.png') }}" class="size-1"></a>
+                            <a href="{{ url_for('todo_update', id=task.id) }}"><img src="{{ url_for('static', filename = 'img/edit.png') }}" class="size-1"></a>
+                            <a href="{{ url_for('todo_delete', id=task.id) }}"><img src="{{ url_for('static', filename = 'img/cancel.png') }}" class="size-1"></a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="row">
+        <ul class="list-group">
+            {% for task in complete %}
+                {% if task.user == current_user %}
+                    {% if task.desc %}
+                        <li class="list-group-item">{{ task.title}} - {{task.desc }}</li>
+                    {% else %}
+                        <li class="list-group-item disabled">{{ task.title}}
+                            <a href="{{ url_for('incomplete', id=task.id) }}"><img src="{{ url_for('static', filename = 'img/redo.png') }}" class="size-1"></a>
+                            <a href="{{ url_for('todo_update', id=task.id) }}"><img src="{{ url_for('static', filename = 'img/edit.png') }}" class="size-1"></a>
+                            <a href="{{ url_for('todo_delete', id=task.id) }}"><img src="{{ url_for('static', filename = 'img/cancel.png') }}" class="size-1"></a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}

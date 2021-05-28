@@ -1,0 +1,126 @@
+html, body {
+    background-color: #d2e8f1;
+    margin:0;
+    padding:0;
+}
+html * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1 {
+    margin-top: 10px;
+}
+.center {
+    margin-left: 450px;
+    text-align: center;
+}
+ul {
+    text-align: center;
+}
+p {
+    font-size: 50px;
+}
+form {
+    width:500px; 
+    margin:0 auto;
+}
+.row {
+    display: flex;
+}
+.column {
+    flex: 33.3%;
+    text-align: center;
+  }
+.size-1 {
+    height: 25px;
+    width: 25px;
+}
+.size-2 {
+    height: 30px;
+    width: 30px;
+}
+.size-3 {
+    height: 200px;
+    width: 200px;
+}
+.pad {
+    padding-top: 100px;
+}
+ul li * {
+    text-decoration: none !important;
+    /* font-size: 50px; */
+}
+.zoom {
+    padding-top: 10px;
+    transition: transform .2s;
+    margin: 0 auto;
+}
+.numpad {
+    padding-top: 35px;
+}
+.zoom:hover {
+    transform: scale(1.1);
+}
+div a {
+    text-decoration: none !important;
+}
+ul {
+    list-style-type: none !important;
+}
+.center {
+    padding: 70px 0;
+    border: 3px solid green;
+    text-align: center;
+  }
+div ul li {
+    font-size: 30px;
+}
+.navbar {
+    margin-bottom: 40px;
+    padding: 10px 30px 0 30px;
+}
+.wrapper {
+    padding: 10px 0 0 50px;
+    float: left;
+}
+.form-group-remember {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: #474747;
+}
+.red-msg {
+    color: #ff00aa;
+}
+.error-msg {
+    color: #ff00aa;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.btn {
+    font-weight: 600;
+}
+.btn-link {
+    font-weight: 400;
+    color: #ffffff;
+    background-color: transparent;
+    font-weight: 600;
+}
+.btn-link:hover{
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+    font-weight: 600;
+}
+.list-group-item {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    font-size: 24px;
+}
+.list-group-item.disabled {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    text-decoration: line-through;
+    font-size: 24px;
+}

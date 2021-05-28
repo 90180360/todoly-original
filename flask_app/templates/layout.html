@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+
+    {% block links %}
+    {% endblock links %}
+    {% if title %}
+        <title>todoly - {{ title }}</title>
+    {% else %}
+        <title>todoly</title>
+    {% endif %}
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md bg-info navbar-dark">
+
+        <!-- Links -->
+        <a class="nav-link text-light font-weight-bold h2" href="{{ url_for('home') }}">todoly</a>
+        <ul class="navbar-nav ml-auto">
+            {% if current_user.is_authenticated %}
+                <li>
+                    <a class="nav-link text-dark h4" href="{{ url_for('logout') }}"><button class="btn btn-link">Log Out</button></a>
+                </li>
+                <li>
+                    <a class="nav-link text-dark h4" href="{{ url_for('todos') }}"><button class="btn btn-link">Todos</button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark h4" href="{{ url_for('account') }}"><button class="btn btn-light">{{ current_user.username }}</button></a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-dark h4" href="{{ url_for('login') }}"><button class="btn btn-link">Log In</button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark h4" href="{{ url_for('signup') }}"><button class="btn btn-dark">Sign Up</button></a>
+                </li>
+            {% endif %}
+        </ul>
+      
+    </nav>
+
+    <div class="wrapper">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <br>
+                    <div class="error-msg">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+</body>
+</html>
