@@ -1,4 +1,3 @@
-from werkzeug import debug
 from flask_app import app
 from flask_app import socketio
 
