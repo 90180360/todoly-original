@@ -1,11 +1,9 @@
 from flask_app import app, db
-import requests
 from flask import render_template, flash, redirect, url_for, abort, request
 from flask_app.forms import RegistrationForm, LoginForm, TodoForm
 from flask_app.models import User, Todo
 from flask_login import login_user, logout_user, current_user, login_required
 from flask_app import bcrypt
-import flask_app.handlers
 
 @app.route('/')
 def home():
