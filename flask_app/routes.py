@@ -1,8 +1,8 @@
+from flask import render_template, flash, redirect, url_for, abort
+from flask_login import login_user, logout_user, current_user, login_required
 from flask_app import app, db
-from flask import render_template, flash, redirect, url_for, abort, request
 from flask_app.forms import RegistrationForm, LoginForm, TodoForm
 from flask_app.models import User, Todo
-from flask_login import login_user, logout_user, current_user, login_required
 from flask_app import bcrypt
 
 @app.route('/')
@@ -127,4 +127,3 @@ def todo_update(id):
     form.desc.data = task.desc
 
     return render_template('todo_update.html', title='Update Todo', form=form)
-

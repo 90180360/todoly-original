@@ -1,7 +1,7 @@
 [MASTER]
-disable=C0114, C0115, C0116
-ignored-classes=scoped_session
-ignored-modules=flask_sqlalchemy
+disable = C0114, C0115, C0116, C0413, C0103, W0622
+ignored-classes = scoped_session
+ignored-modules = flask_sqlalchemy
 
 [FORMAT]
-max-line-length=240
+max-line-length = 240
