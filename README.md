@@ -17,7 +17,7 @@
   pip install -r requirements.txt
   ```
 
-* Set the environment variables
+* Set the environment variables to venv/bin/activate
   ``` 
   export DATABASE_URL=postgresql://USERNAME:PASSWORD@HOST/todoly
   export SECRET_KEY=YOUR_SECRET_KEY
